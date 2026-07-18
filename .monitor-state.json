@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "combinedFingerprint": "02bb75bb9beb2c0d93be8513453f9f843e323fa16d04b47cf71c830879b27e20",
+  "initializedAt": "2026-07-18T18:07:20.844Z",
+  "updatedAt": "2026-07-18T18:07:20.844Z",
+  "sources": [
+    {
+      "id": "2026-11-19",
+      "label": "11/19 高雄場",
+      "url": "https://www.livenation.com.tw/en/event/bts-world-tour-arirang-in-kaohsiung-kaohsiung-tickets-edp1675883",
+      "fingerprint": "daa3ed49ae6c3f23a8de4aeeb1c5d2c71a0e1c38701991f8130b594740a09a6d",
+      "summary": "Tickets 正式開賣 General Onsale Buy tickets General Onsale - Buy tickets Alternative Dates Sat 21 Nov Kaohsiung"
+    },
+    {
+      "id": "2026-11-21-22",
+      "label": "11/21、11/22 高雄場",
+      "url": "https://www.livenation.com.tw/en/event/bts-world-tour-arirang-in-kaohsiung-kaohsiung-tickets-edp1675887",
+      "fingerprint": "ae1232639fec59977263c0585b843574efbb575d437f6987a7f881be36ab416b",
+      "summary": "Tickets 正式開賣 General Onsale Buy tickets General Onsale - Buy tickets Alternative Dates Thu 19 Nov Kaohsiung"
+    }
+  ]
+}
