@@ -1,6 +1,8 @@
 # BTS 高雄場公開售票雷達
 
-這是一個個人用、唯讀的公開售票資訊監看器。GitHub Actions 約每 5 分鐘檢查一次官方 Live Nation Taiwan 活動頁；偵測到公開售票區塊變動時，透過 LINE Messaging API 通知你，再由你自行前往拓元確認。
+> **狀態：自動排程已停用。** 本程式不會在背景定時執行，目前只保留手動測試入口。
+
+這是一個個人用、唯讀的公開售票資訊監看器。它只能檢查官方 Live Nation Taiwan 活動頁的公開文字，無法偵測拓元票區頁內的單張退票或即時座位變化。
 
 ## 重要限制
 
@@ -32,7 +34,7 @@ GitHub Actions Secrets 會加密保存，程式不會把兩個秘密值印到執
 ## 檔案說明
 
 - `monitor.mjs`：抓取與比對官方公開售票區塊，必要時發送 LINE。
-- `.github/workflows/bts-ticket-monitor.yml`：每 5 分鐘與手動執行排程。
+- `.github/workflows/bts-ticket-monitor.yml`：自動排程已停用，只保留手動執行入口。
 - `.monitor-state.json`：首次成功執行後建立，只保存公開頁面指紋與文字摘要，不含 LINE 機密。
 - `.monitor-heartbeat`：每 30 天更新一次，避免長期無通知時公開 repository 的排程被 GitHub 自動停用。
 
