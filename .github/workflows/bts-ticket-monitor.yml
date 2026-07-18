@@ -1,9 +1,7 @@
-name: BTS 公開售票雷達
+name: BTS 公開售票雷達（自動排程已停用）
 
 on:
-  schedule:
-    # 避開整點的 GitHub Actions 排程尖峰；UTC 時區不影響每 5 分鐘的頻率。
-    - cron: "2-59/5 * * * *"
+  # 已停用定時執行，只保留手動測試入口。
   workflow_dispatch:
 
 permissions:
