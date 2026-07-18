@@ -1,0 +1,47 @@
+name: BTS 公開售票雷達
+
+on:
+  schedule:
+    # 避開整點的 GitHub Actions 排程尖峰；UTC 時區不影響每 5 分鐘的頻率。
+    - cron: "2-59/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bts-public-ticket-monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: 取得監看程式
+        uses: actions/checkout@v4
+
+      - name: 使用 Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 檢查官方公開售票頁
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: node monitor.mjs
+
+      - name: 保存監看狀態
+        shell: bash
+        run: |
+          if [[ -z "$(git status --porcelain -- .monitor-state.json .monitor-heartbeat)" ]]; then
+            echo "公開售票狀態沒有變化。"
+            exit 0
+          fi
+
+          git config user.name "BTS Ticket Radar"
+          git config user.email "actions@users.noreply.github.com"
+          git add .monitor-state.json .monitor-heartbeat
+          git commit -m "chore: update radar state [skip ci]"
+          git push
